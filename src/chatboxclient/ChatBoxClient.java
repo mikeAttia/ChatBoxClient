@@ -19,7 +19,7 @@ public class ChatBoxClient extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("ChatBoxClientFXMLDoc.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SignInViewFXMLDoc.fxml"));
         
         Scene scene = new Scene(root);
         
