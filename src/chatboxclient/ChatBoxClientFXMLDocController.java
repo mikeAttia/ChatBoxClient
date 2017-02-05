@@ -34,6 +34,7 @@ public class ChatBoxClientFXMLDocController implements Initializable {
         References to FXML elements with ids
     ----------------------------------------------------------------*/
     
+    MainController mainController;
     @FXML
     private Label label;
     
