@@ -8,6 +8,8 @@ package chatboxclient;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -24,6 +29,10 @@ import javafx.stage.Stage;
  * @author michael
  */
 public class ChatBoxClientFXMLDocController implements Initializable {
+    
+    /*----------------------------------------------------------------
+        References to FXML elements with ids
+    ----------------------------------------------------------------*/
     
     @FXML
     private Label label;
@@ -36,6 +45,19 @@ public class ChatBoxClientFXMLDocController implements Initializable {
     
     @FXML
     private Stage stage;
+
+    @FXML
+    private Text errorText;
+
+    @FXML
+    private TextField loginUserName;
+
+    @FXML
+    private PasswordField loginPassword;
+
+    /*----------------------------------------------------------------
+        Assigning actions to elements in FXML
+    ----------------------------------------------------------------*/
     
     @FXML
     private void goToSignUp(ActionEvent event) throws IOException
@@ -66,15 +88,76 @@ public class ChatBoxClientFXMLDocController implements Initializable {
     }
     
     
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
-    
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    } 
+     @FXML
+    private void handleSignInButton(ActionEvent event) {
+        
+         boolean flagPassword = false;
+         String strLogin = loginUserName.getText();
+         String strPassword = loginPassword.getText();
+         if (((strPassword.length()) != 0) && (strPassword.isEmpty()==false)) {
+             flagPassword = true;
+         }
+         else{
+             flagPassword=false;
+         }
+         // flagPassword=((strPassword.length())!=0);
+         boolean userNameFieldOk = validateUserNameField(strLogin);
+         System.out.println("userNameFiled" + userNameFieldOk + "password" + flagPassword);
+         if ((userNameFieldOk == true) && (flagPassword == true)) {
+               
+           }
+           }
+    
+    /*----------------------------------------------------------------
+        Helper methods
+    ----------------------------------------------------------------*/
+    boolean validateUserNameField(String usernameFieldString)
+    {
+    boolean flagUserName;
+    boolean flagEmail;
+    flagUserName= validateUserName(usernameFieldString);
+    flagEmail=validateEmail(usernameFieldString);
+    
+    if((flagUserName==true)&&(flagEmail==false))
+    {
+        //user entered username
+        return true;
+    }
+    
+    else if((flagUserName==false)&&(flagEmail==true))
+    {
+        // user enterd email
+        return true;
+    
+    }
+    else {
+    
+        // user entered invalid username or email
+        return false;
+    }
+    
+    }
+    boolean validateUserName(String username)
+    {
+        Pattern p = Pattern.compile("^[a-zA-Z](([\\._\\-][a-zA-Z0-9])|[a-zA-Z0-9])*[a-z0-9]$");
+        Matcher m = p.matcher(username);
+        boolean b = m.matches();
+        return b;
+    }
+    
+    boolean validateEmail(String email)
+    {
+          Pattern p = Pattern.compile("^[a-zA-Z._-]+[a-zA-Z0-9._-]+@[a-zA-Z.-]+\\.[a-zA-Z]{2,4}$");
+        Matcher m = p.matcher(email);
+        boolean b = m.matches();
+        return b;
+        
+       
+    }
     
 }
