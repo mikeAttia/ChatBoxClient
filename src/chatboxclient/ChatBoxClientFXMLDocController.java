@@ -7,6 +7,7 @@ package chatboxclient;
 
 import java.io.IOException;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -87,6 +88,10 @@ public class ChatBoxClientFXMLDocController implements Initializable {
   
   
     }
+
+    public ChatBoxClientFXMLDocController() throws RemoteException {
+        this.mainController = new MainController(this);
+    }
     
     
    
@@ -110,6 +115,8 @@ public class ChatBoxClientFXMLDocController implements Initializable {
          boolean userNameFieldOk = validateUserNameField(strLogin);
          System.out.println("userNameFiled" + userNameFieldOk + "password" + flagPassword);
          if ((userNameFieldOk == true) && (flagPassword == true)) {
+             System.out.println(mainController.clientModal);
+             mainController.clientModal.lookUp();
                
            }
            }

@@ -18,8 +18,10 @@ public class MainController{
      ChatBoxClientFXMLDocController fxmlController;
      ChatBoxClient application;
      
+     
     //Constructor that takes FXMLController and creates objects of other classes
     public MainController(ChatBoxClientFXMLDocController fxmlCtrlr) throws RemoteException {
+        System.out.println("sad");
         clientModal=new ClientModal(this);
         fxmlController = fxmlCtrlr;
     }
