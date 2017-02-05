@@ -25,6 +25,7 @@ import javafx.stage.Stage;
  */
 public class ChatBoxClientFXMLDocController implements Initializable {
     
+    MainController mainController;
     @FXML
     private Label label;
     

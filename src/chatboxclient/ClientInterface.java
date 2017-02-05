@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
  *
  * @author Mustafa
  */
-public interface Client extends Remote{
+public interface ClientInterface extends Remote{
 //    +displayMsg(String msg) void
 //+showAdvert(String s)
 //+getNotification(User s,String Status) void

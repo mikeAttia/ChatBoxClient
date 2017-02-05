@@ -15,6 +15,6 @@ import java.util.Vector;
  * @author Mustafa
  */
 public interface ServerInterface extends Remote{
-    Vector<User> loginRequest(String username,String password,Client userInt) throws RemoteException;
-    String signUp(User newUser,Client userInt) throws RemoteException;
+    Vector<User> loginRequest(String username,String password,ClientInterface userInt) throws RemoteException;
+    String signUp(User newUser,ClientInterface userInt) throws RemoteException;
 }
