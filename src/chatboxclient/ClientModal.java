@@ -13,7 +13,7 @@ import java.rmi.server.UnicastRemoteObject;
  * @author ehab
  */
 
-public class ClientModal extends UnicastRemoteObject implements ClientInterface {
+public class ClientModal extends UnicastRemoteObject implements Client {
 
     MainController mainController;
     ClientModal(MainController controller) throws RemoteException {
