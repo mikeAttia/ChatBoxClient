@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -18,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="326.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatboxclient.ChatBoxClientFXMLDocController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="326.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
       <ColumnConstraints hgrow="ALWAYS" minWidth="15.0" prefWidth="15.0" />
       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="294.0" />
@@ -45,6 +47,7 @@
       <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
@@ -53,91 +56,90 @@
    <children>
       <ImageView fitHeight="47.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <image>
-            <Image url="@ChatBoxLogo.png" />
+            <Image url="chatboxclient/ChatBoxLogo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="15.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
          <image>
-            <Image url="@ChatBoxSlogan.png" />
+            <Image url="chatboxclient/ChatBoxSlogan.png" />
          </image>
       </ImageView>
-      <Label text="Username" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+       <Label text="Username" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+        <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin></Label>
+      <TextField fx:id="signupUserName" promptText="unique_username" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Label text="Email" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets left="5.0" />
          </GridPane.margin></Label>
-      <TextField promptText="unique_username" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <Label text="Email" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
-         <GridPane.margin>
-            <Insets left="5.0" />
-         </GridPane.margin></Label>
-      <TextField promptText="yourname@domain.com" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <TextField fx:id="signupEmail" promptText="yourname@domain.com" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      
+      
       <Label text="Password" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets left="5.0" />
          </GridPane.margin></Label>
-      <PasswordField promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+      <PasswordField fx:id="signupPassword" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="10" />
       <Label prefHeight="17.0" prefWidth="112.0" text="Confirm password" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="11" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets left="5.0" />
          </GridPane.margin></Label>
-      <PasswordField promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+      <PasswordField fx:id="signupConfirmPassword" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="12" />
       <Label text="Phone no." GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="13" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets left="5.0" />
          </GridPane.margin></Label>
-      <TextField promptText="01276543456" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+      <TextField fx:id="signupPhone" promptText="01276543456" GridPane.columnIndex="1" GridPane.rowIndex="14" />
       <Label text="Date of Birth" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="16" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets left="5.0" />
          </GridPane.margin></Label>
-      <DatePicker maxWidth="1.7976931348623157E308" promptText="mm/dd/yyy" showWeekNumbers="true" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+      <DatePicker fx:id="signupDatePicker" editable="false" maxWidth="1.7976931348623157E308" promptText="yyyy-MM-dd" showWeekNumbers="true" GridPane.columnIndex="1" GridPane.rowIndex="17" />
       <Label text="Country" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="18" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets left="5.0" />
          </GridPane.margin></Label>
-      <ChoiceBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+         <ChoiceBox fx:id="signupChoiceBoxCountry" maxWidth="1.7976931348623157E308" prefWidth="150.0" value="- Select choice -" GridPane.columnIndex="1" GridPane.rowIndex="19">
+              <items>
+        <FXCollections fx:factory="observableArrayList">
+            <String fx:value="Egypt" />
+            <String fx:value="China" />
+            <String fx:value="USA" />
+        </FXCollections>
+      </items>
+         </ChoiceBox>
       <GridPane GridPane.columnIndex="1" GridPane.rowIndex="15">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
+          <RowConstraints />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Gender" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-            <RadioButton mnemonicParsing="false" selected="true" text="Male" GridPane.columnIndex="1">
+            <Label text="Gender" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
+            <RadioButton fx:id="signupMale" mnemonicParsing="false" selected="true" text="Male" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <toggleGroup>
                   <ToggleGroup fx:id="gender" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$gender" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <RadioButton fx:id="signupFemale" mnemonicParsing="false" text="Female" toggleGroup="$gender" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="20">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="97.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="197.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Profile picture" />
-            <Button mnemonicParsing="false" text="Choose an Image..." GridPane.columnIndex="1" />
-         </children>
-      </GridPane>
-      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Sign Up" GridPane.columnIndex="1" GridPane.rowIndex="21">
+      <Button fx:id="signupBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleSignUpButton" text="Sign Up" GridPane.columnIndex="1" GridPane.rowIndex="22">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Text fill="#ff5656" strokeType="OUTSIDE" strokeWidth="0.0" text="ERROR MSG GOES HERE" GridPane.columnIndex="1" GridPane.rowIndex="22" />
-      <Hyperlink fx:id="backToSignIn" text="« Back" onAction="#backToSignIn" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text fx:id="signupErrorMsg" fill="#ff5656" strokeType="OUTSIDE" strokeWidth="0.0" text="ERROR MSG GOES HERE" GridPane.columnIndex="1" GridPane.rowIndex="23" />
+      <Hyperlink fx:id="backToSignIn" onAction="#backToSignIn" text="« Back" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="5.0" />
          </GridPane.margin>
-      </Hyperlink>
+      </Hyperlink> 
+    
    </children>
 </GridPane>

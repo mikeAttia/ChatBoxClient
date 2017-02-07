@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="326.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatboxclient.ChatBoxClientFXMLDocController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="326.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
       <ColumnConstraints hgrow="ALWAYS" minWidth="15.0" prefWidth="16.0" />
       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="294.0" />
@@ -38,12 +38,12 @@
    <children>
       <ImageView fitHeight="106.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <image>
-            <Image url="@ChatBoxLogo.png" />
+            <Image url="chatboxclient/ChatBoxLogo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
          <image>
-            <Image url="@ChatBoxSlogan.png" />
+            <Image url="chatboxclient/ChatBoxSlogan.png" />
          </image>
       </ImageView>
       <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleSignInButton" text="Sign In" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="11">

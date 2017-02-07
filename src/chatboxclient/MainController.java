@@ -6,21 +6,31 @@
 package chatboxclient;
 
 import java.rmi.RemoteException;
-import java.util.Vector;
-
 /**
  *
- * @author ehab
+ * @author Michael
  */
 public class MainController{
 
-     ClientModal clientModal;
-     ChatBoxClientFXMLDocController fxmlController;
+     ClientImp clientObj;
      ChatBoxClient application;
+     ClientModel model;
+     
      
     //Constructor that takes FXMLController and creates objects of other classes
-    public MainController(ChatBoxClientFXMLDocController fxmlCtrlr) throws RemoteException {
-        clientModal=new ClientModal(this);
-        fxmlController = fxmlCtrlr;
+    public MainController(ChatBoxClient app) throws RemoteException {
+        clientObj=new ClientImp(this);
+        application = app;
+        model = new ClientModel(this); 
+    }
+    
+    public void cantConnectToServer(){
+        application.signInController.cantConnectToServer();
+    }
+    
+    //TODO: can't connect to server for SignUP view
+    
+    public boolean connectToServer(){
+        return model.connectToServer();
     }
 }
